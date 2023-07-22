@@ -1,0 +1,121 @@
+// delete the following line if no text is used
+// edit the line if you wanna use other fonts
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+// use only the available space inside the 400x400 frame
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+	overflow: hidden;
+  background: #fff;
+  color: #333;
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+  background: linear-gradient(to top right, #433A9F 0%, #4EC6CA 100%);
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+
+// VARIABLES
+$container_width: 200px;
+$number__width: 100px;
+$number__height: 100px;
+$number__weight: 25px;
+$number__color: #FFF;
+$text__color: #FFF;
+
+.numbers__container {
+
+  width: $container_width;
+  
+  .numbers {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    width: 100%;
+    height: $number__height;
+
+    .number {
+      display: block;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .one {
+      &::before {
+        content: "";
+        display: block;
+        height: $number__weight;
+        width: calc($number__weight * 1.7);
+        position: absolute;
+        top: calc($number__weight / 2) - 2;
+        left: -$number__weight;
+        background-color: $number__color;
+        border-radius: 3px;
+        transform: rotateZ(-45deg) translateZ(-1px);
+      }
+
+
+      background-color: $number__color;
+      width: $number__weight;
+      border-radius: 3px;
+      transform-style: preserve-3d;
+      z-index: 2;
+    }
+
+    .zero {
+      width: $number__width;
+      box-sizing: border-box;
+      left: calc(#{$number__weight} - 5px);
+      border-radius: 50%;
+      border: $number__weight solid $number__color;
+      z-index: 1;
+    }
+
+    .zero:last-child {
+      left: $number__width;
+      z-index: 0;
+    }
+
+  }
+
+  p, span {
+    color: $text__color;
+    font-family: "Courier New", "Courier", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: .8;
+  }
+
+  .big__text {
+    position: relative;
+    display: inline-block;
+    margin: 6px 0 0 0;
+    font-size: 85px;
+  }
+
+  .small__text {
+    font-size: 1.5rem;
+    letter-spacing: 0.04em;
+    text-align: center;
+    margin: 0;
+  }
+}
